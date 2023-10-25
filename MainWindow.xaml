@@ -5,40 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceProcess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="Service_Form">
+        Title="MainWindow" Height="450" Width="1075">
+    <Grid x:Name="Service_Form" Margin="0,0,10,0">
         <Label Content="Client Name:" HorizontalAlignment="Left" Margin="38,44,0,0" VerticalAlignment="Top"/>
         <Label Content="Drone Model:" HorizontalAlignment="Left" Margin="38,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Service Problem:" HorizontalAlignment="Left" Margin="38,121,0,0" VerticalAlignment="Top"/>
         <Label Content="Service Cost:" HorizontalAlignment="Left" Margin="38,168,0,0" VerticalAlignment="Top"/>
         <Label Content="Service Tag:" HorizontalAlignment="Left" Margin="38,213,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="151,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
-        <TextBox HorizontalAlignment="Left" Margin="151,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
-        <TextBox HorizontalAlignment="Left" Margin="151,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
-        <TextBox HorizontalAlignment="Left" Margin="151,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
-        <TextBox HorizontalAlignment="Left" Margin="151,222,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="clientName" HorizontalAlignment="Left" Margin="151,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="droneModel" HorizontalAlignment="Left" Margin="151,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="serviceProblem" HorizontalAlignment="Left" Margin="151,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="serviceCost" HorizontalAlignment="Left" Margin="151,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="serviceTag" HorizontalAlignment="Left" Margin="151,222,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
         <Label Content="Priority:" HorizontalAlignment="Left" Margin="38,260,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Expert" HorizontalAlignment="Left" Margin="147,266,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Regular" HorizontalAlignment="Left" Margin="238,267,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="49,337,0,0" VerticalAlignment="Top" Height="34" Width="60"/>
-        <Button Content="Finish" HorizontalAlignment="Left" Margin="121,337,0,0" VerticalAlignment="Top" Height="34" Width="62"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="196,337,0,0" VerticalAlignment="Top" Height="34" Width="53"/>
-        <ListView x:Name="lstService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="346,44,245,95">
+        <RadioButton x:Name="express" Content="Express" HorizontalAlignment="Left" Margin="147,266,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="regular" Content="Regular" HorizontalAlignment="Left" Margin="238,267,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="49,337,0,0" VerticalAlignment="Top" Height="34" Width="122" Click="btnAdd_Click"/>
+        <Button x:Name="btnFinish" Content="Finish" HorizontalAlignment="Left" Margin="176,337,0,0" VerticalAlignment="Top" Height="34" Width="128"/>
+        <ListView x:Name="lstService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="346,44,502,95">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="lstFinish" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="568,44,23,95">
+        <ListView x:Name="lstFinish" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="568,44,271,95">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="For Service:" HorizontalAlignment="Left" Margin="346,13,0,0" VerticalAlignment="Top"/>
-        <Label Content="Finish Service:" HorizontalAlignment="Left" Margin="568,13,0,0" VerticalAlignment="Top"/>
+        <Label Content="Regular Service:" HorizontalAlignment="Left" Margin="346,13,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Express Service:" HorizontalAlignment="Left" Margin="568,13,0,0" VerticalAlignment="Top"/>
+        <StatusBar Height="29" VerticalAlignment="Top" Margin="0,405,0,0"/>
+        <ListView x:Name="lstFinish_Copy" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="823,44,16,95">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Finish Service:" HorizontalAlignment="Left" Margin="823,13,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

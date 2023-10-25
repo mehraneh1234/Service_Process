@@ -1,5 +1,5 @@
 ﻿ServiceProcess
-1.0.0.0
+
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\30062786\Source\Repos\ServiceProcess\App.xaml
 11407045341
 
-7-890972940
+51832449445
 194-97651837
 MainWindow.xaml;
 

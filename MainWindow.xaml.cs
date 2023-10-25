@@ -20,9 +20,21 @@ namespace ServiceProcess
     /// </summary>
     public partial class MainWindow : Window
     {
+        Information informationInstance = new Information();
+        Queue<Information> information = new Queue<Information>();
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    public class MainDiagram
+    {
     }
 }
