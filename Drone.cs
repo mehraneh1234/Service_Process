@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ServiceProcess
 {
-    internal class Information
+    internal class Drone
     {
-        public Information()
+        public Drone()
         {
 
         }
@@ -38,13 +40,13 @@ namespace ServiceProcess
         {
             return _serviceTag;
         }
-        public void SetCientName(string clientName)
+        public void SetClientName(string clientName)
         {
-            _clientName = clientName;
+            _clientName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(clientName);
         }
         public void SetServiceProblem(string serviceProblem)
         {
-            _serviceProblem = serviceProblem;
+            _serviceProblem = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(serviceProblem);
         }
         public void SetDroneModel(string droneModel)
         {
@@ -57,6 +59,10 @@ namespace ServiceProcess
         public void SetServiceTag(string serviceTag)
         {
             _serviceTag = serviceTag;
+        }
+        public string DisplayFinishService()
+        {
+            return GetClientName() + " : $" + GetServiceCost();
         }
     }
 }
