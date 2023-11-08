@@ -19,3 +19,24 @@ C:\Users\30062786\Source\Repos\ServiceProcess\obj\Debug\net6.0-windows\refint\Se
 C:\Users\30062786\Source\Repos\ServiceProcess\obj\Debug\net6.0-windows\ServiceProcess.pdb
 C:\Users\30062786\Source\Repos\ServiceProcess\obj\Debug\net6.0-windows\ServiceProcess.genruntimeconfig.cache
 C:\Users\30062786\Source\Repos\ServiceProcess\obj\Debug\net6.0-windows\ref\ServiceProcess.dll
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\bin\Debug\net6.0-windows\ServiceProcess.exe
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\bin\Debug\net6.0-windows\ServiceProcess.deps.json
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\bin\Debug\net6.0-windows\ServiceProcess.runtimeconfig.json
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\bin\Debug\net6.0-windows\ServiceProcess.dll
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\bin\Debug\net6.0-windows\ServiceProcess.pdb
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.csproj.AssemblyReference.cache
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\MainWindow.g.cs
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\App.g.cs
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess_MarkupCompile.cache
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess_MarkupCompile.lref
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\MainWindow.baml
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.g.resources
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.GeneratedMSBuildEditorConfig.editorconfig
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.AssemblyInfoInputs.cache
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.AssemblyInfo.cs
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.csproj.CoreCompileInputs.cache
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.dll
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\refint\ServiceProcess.dll
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.pdb
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ServiceProcess.genruntimeconfig.cache
+D:\tafe\semester2 - 2023\wednesday\C#2 - 443, 430, 449, Stewart\GithubServiceProcess\Service_Process\obj\Debug\net6.0-windows\ref\ServiceProcess.dll
