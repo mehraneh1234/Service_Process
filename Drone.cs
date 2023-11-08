@@ -17,7 +17,7 @@ namespace ServiceProcess
         private string _clientName;
         private string _droneModel;
         private string _serviceProblem;
-        private string _serviceCost;
+        private double _serviceCost;
         private string _serviceTag;
 
         public string GetClientName()
@@ -32,7 +32,7 @@ namespace ServiceProcess
         {
             return _serviceProblem;
         }
-        public string GetServiceCost()
+        public double GetServiceCost()
         {
             return _serviceCost;
         }
@@ -42,7 +42,14 @@ namespace ServiceProcess
         }
         public void SetClientName(string clientName)
         {
-            _clientName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(clientName);
+            if (clientName ==null)
+            {
+                _clientName = "Unknown";
+            }
+            else
+            {
+                _clientName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(clientName);
+            }
         }
         public void SetServiceProblem(string serviceProblem)
         {
@@ -52,9 +59,17 @@ namespace ServiceProcess
         {
             _droneModel = droneModel;
         }
-        public void SetServiceCost(string serviceCost)
+        public void SetServiceCost(double serviceCost)
         {
-            _serviceCost = serviceCost;
+            if (serviceCost < 0)
+            {
+                _serviceCost = 49.9;
+            }
+            else
+            {
+                _serviceCost = serviceCost;
+            }
+            
         }
         public void SetServiceTag(string serviceTag)
         {

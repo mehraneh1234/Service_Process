@@ -7,39 +7,44 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="496" Width="1000">
     <Grid x:Name="Service_Form" Margin="0,0,10,0">
-        <TextBox x:Name="tbClientName" HorizontalAlignment="Left" Margin="39,39,0,0" TextWrapping="Wrap" Text="Client Name" VerticalAlignment="Top" Width="179" Foreground="#FFF90982" Height="20"/>
-        <TextBox x:Name="tbDroneModel" HorizontalAlignment="Left" Margin="39,76,0,0" TextWrapping="Wrap" Text="Drone Model" VerticalAlignment="Top" Width="179" Foreground="#FFF90982" Height="20"/>
-        <TextBox x:Name="tbServiceProblem" HorizontalAlignment="Left" Margin="39,112,0,0" TextWrapping="Wrap" Text="Service Problem" VerticalAlignment="Top" Width="179" Height="77" Foreground="#FFF90982"/>
-        <TextBox x:Name="tbServiceCost" HorizontalAlignment="Left" Margin="39,206,0,0" TextWrapping="Wrap" Text="Service Cost" VerticalAlignment="Top" Width="179" Foreground="#FFF90982" Height="20"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="39,330,0,0" VerticalAlignment="Top" Height="33" Width="179" Click="btnAdd_Click" Foreground="#FFF5F5F9" Background="#FFF90982" FontWeight="Bold" FontSize="14" BorderBrush="#00000000"/>
-        <Button x:Name="btnFinishRegular" Content="Finish" HorizontalAlignment="Left" Margin="399,40,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
-        <ListView x:Name="lvRegularService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="265,86,277,260">
+        <TextBox x:Name="tbClientName" HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="Enter Full Name" VerticalAlignment="Top" Width="179" Height="20" Foreground="CadetBlue" GotFocus="tbClientName_GotFocus" TabIndex="0"/>
+        <TextBox x:Name="tbDroneModel" HorizontalAlignment="Left" Margin="39,112,0,0" TextWrapping="Wrap" Text="Enter Drone Model" VerticalAlignment="Top" Width="179" Height="20" Foreground="CadetBlue" GotFocus="tbDroneModel_GotFocus" TabIndex="1"/>
+        <TextBox x:Name="tbServiceProblem" HorizontalAlignment="Left" Margin="39,148,0,0" TextWrapping="Wrap" Text="Enter Service Problem" VerticalAlignment="Top" Width="179" Height="77" Foreground="CadetBlue" GotFocus="tbServiceProblem_GotFocus" TabIndex="2"/>
+        <TextBox x:Name="tbServiceCost" HorizontalAlignment="Left" Margin="39,0,0,0" TextWrapping="Wrap" Text="Enter Service Cost" VerticalAlignment="Center" Width="179" Height="20" Foreground="CadetBlue" GotFocus="tbServiceCost_GotFocus" TabIndex="3"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="39,351,0,0" VerticalAlignment="Top" Height="33" Width="179" Click="btnAdd_Click" Foreground="#FFF5F5F9" Background="#FFF90982" FontWeight="Bold" FontSize="14" BorderBrush="#00000000" TabIndex="4"/>
+        <Button x:Name="btnFinishRegular" Content="Finish" HorizontalAlignment="Left" Margin="399,30,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <ListView x:Name="lvRegularService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="265,76,277,270" SelectionChanged="ListViewDisplayRegular_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ClientName}"/>
+                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding DroneModel}"/>
+                    <GridViewColumn Header="Problem" DisplayMemberBinding="{Binding ServiceProblem}"/>
+                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding ServiceCost}"/>
+                    <GridViewColumn Header="Tag" DisplayMemberBinding="{Binding RegularTag}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvExpressService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="265,263,277,90" SelectionChanged ="ListViewDisplayExpress_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Problem" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Tag" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}"/>
+                    <GridViewColumn Header="Problem" DisplayMemberBinding="{Binding Problem}"/>
+                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding Cost}"/>
+                    <GridViewColumn Header="Tag" DisplayMemberBinding="{Binding Tag}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="lvExpressService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="265,273,277,94">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label Content="Regular Service:" HorizontalAlignment="Left" Margin="265,40,0,0" VerticalAlignment="Top" Width="118" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Express Service:" HorizontalAlignment="Left" Margin="265,226,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <StatusBar Height="29" VerticalAlignment="Top" Margin="0,405,0,0"/>
-        <Label Content="Finish Service:" HorizontalAlignment="Left" Margin="742,40,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <RadioButton x:Name="rbRegular" Content="Regular" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="39,254,835,185"/>
-        <RadioButton x:Name="rbExpress" Content="Express" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="139,254,741,185"/>
-        <ComboBox x:Name="cbTag" HorizontalAlignment="Left" Margin="39,295,0,0" VerticalAlignment="Top" Width="179" Text="Tag" Foreground="#FF2B7FDC" Height="25"/>
-        <Button x:Name="btnFinishExpress" Content="Finish" HorizontalAlignment="Left" Margin="399,230,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
-        <ListBox x:Name="lbFinishService" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="742,86,41,94"/>
+        <Label Content="Regular Service:" HorizontalAlignment="Left" Margin="261,30,0,0" VerticalAlignment="Top" Width="129" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Express Service:" HorizontalAlignment="Left" Margin="261,217,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <StatusBar Height="29" VerticalAlignment="Top" Margin="3,430,-3,0"/>
+        <Label Content="Finish Service:" HorizontalAlignment="Left" Margin="742,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <RadioButton x:Name="rbRegular" Content="Regular" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="39,275,835,164"/>
+        <RadioButton x:Name="rbExpress" Content="Express" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="139,275,741,164"/>
+        <ComboBox x:Name="cbTag" HorizontalAlignment="Left" Margin="39,312,0,0" VerticalAlignment="Top" Width="179" Text="Tag" Foreground="#FF2B7FDC" Height="25"/>
+        <Button x:Name="btnFinishExpress" Content="Finish" HorizontalAlignment="Left" Margin="399,219,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <ListBox x:Name="lbFinishService" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="742,76,41,90"/>
+        <Label Content="Drone Detail:" HorizontalAlignment="Left" Margin="36,31,0,0" VerticalAlignment="Top" Width="118" FontSize="16" FontWeight="Bold"/>
 
 
     </Grid>
