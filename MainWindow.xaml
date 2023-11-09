@@ -11,8 +11,8 @@
         <TextBox x:Name="tbDroneModel" HorizontalAlignment="Left" Margin="39,112,0,0" TextWrapping="Wrap" Text="Enter Drone Model" VerticalAlignment="Top" Width="179" Height="20" Foreground="CadetBlue" GotFocus="tbDroneModel_GotFocus" TabIndex="1"/>
         <TextBox x:Name="tbServiceProblem" HorizontalAlignment="Left" Margin="39,148,0,0" TextWrapping="Wrap" Text="Enter Service Problem" VerticalAlignment="Top" Width="179" Height="77" Foreground="CadetBlue" GotFocus="tbServiceProblem_GotFocus" TabIndex="2"/>
         <TextBox x:Name="tbServiceCost" HorizontalAlignment="Left" Margin="39,237,0,0" TextWrapping="Wrap" Text="125" VerticalAlignment="Top" Width="179" Height="20" Foreground="CadetBlue" GotFocus="tbServiceCost_GotFocus" PreviewTextInput="tbServiceCost_PreviewTextInput" TextAlignment="Right" TabIndex="3"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="39,351,0,0" VerticalAlignment="Top" Height="33" Width="179" Click="btnAdd_Click" Foreground="#FFF5F5F9" Background="#FFF90982" FontWeight="Bold" FontSize="14" BorderBrush="#00000000" TabIndex="4"/>
-        <Button x:Name="btnFinishRegular" Content="Finish" HorizontalAlignment="Left" Margin="399,34,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="AddNewItem" Content="Add" HorizontalAlignment="Left" Margin="39,351,0,0" VerticalAlignment="Top" Height="33" Width="179" Click="AddNewItem_Click" Foreground="#FFF5F5F9" Background="#FFF90982" FontWeight="Bold" FontSize="14" BorderBrush="#00000000" TabIndex="4"/>
+        <Button x:Name="btnFinishRegular" Content="Finish" HorizontalAlignment="Left" Margin="399,34,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White" Click="btnFinishRegular_Click"/>
         <ListView x:Name="lvRegularService" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Extended" Margin="265,76,277,259" SelectionChanged="ListViewDisplayRegular_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -41,9 +41,9 @@
         <Label Content="Finish Service:" HorizontalAlignment="Left" Margin="754,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <RadioButton x:Name="rbRegular" Content="Regular" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="39,275,835,164" IsChecked="True"/>
         <RadioButton x:Name="rbExpress" Content="Express" FontSize="14" FontWeight="Bold" GroupName="priority" Margin="139,275,741,164"/>
-        <ComboBox x:Name="cbTag" HorizontalAlignment="Left" Margin="39,312,0,0" VerticalAlignment="Top" Width="179" Text="Tag" Foreground="#FF2B7FDC" Height="25" SelectedIndex="0"/>
-        <Button x:Name="btnFinishExpress" Content="Finish" HorizontalAlignment="Left" Margin="399,234,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White"/>
-        <ListBox x:Name="lbFinishService" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="754,76,29,66"/>
+        <ComboBox x:Name="cbTag" HorizontalAlignment="Left" Margin="39,312,0,0" VerticalAlignment="Top" Width="179" SelectedValue="100" Foreground="#FF2B7FDC" Height="25" SelectedIndex="0"/>
+        <Button x:Name="btnFinishExpress" Content="Finish" HorizontalAlignment="Left" Margin="399,234,0,0" VerticalAlignment="Top" Height="26" Width="297" Background="#FFF90982" FontSize="14" FontWeight="Bold" Foreground="White" Click="btnFinishExpress_Click"/>
+        <ListBox x:Name="lbFinishService" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="754,76,29,66" MouseDoubleClick="lbFinishService_MouseDoubleClick"/>
         <Label Content="Drone Detail:" HorizontalAlignment="Left" Margin="36,31,0,0" VerticalAlignment="Top" Width="118" FontSize="16" FontWeight="Bold"/>
 
 

@@ -23,10 +23,10 @@ namespace ServiceProcess
     {
         
         
-        Queue<Drone> regularServiceQueue = new Queue<Drone>();
-        Queue<Drone> expressServiceQueue = new Queue<Drone>();
-        List<Drone> finishedList = new List<Drone>();
-        private int currentTag = 100;
+        Queue<Drone> RegularService = new Queue<Drone>();
+        Queue<Drone> ExpressService = new Queue<Drone>();
+        List<Drone> FinishedList = new List<Drone>();
+        //private int currentTag = 100;
 
 
         public MainWindow()
@@ -48,9 +48,9 @@ namespace ServiceProcess
 
         
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void AddNewItem_Click(object sender, RoutedEventArgs e)
         {
-            tbServiceCost.Text = "125";
+            //tbServiceCost.Text = "125";
             if (!string.IsNullOrEmpty(tbClientName.Text) &&
                 !string.IsNullOrEmpty(tbDroneModel.Text) &&
                 !string.IsNullOrEmpty(tbServiceProblem.Text) &&
@@ -63,18 +63,16 @@ namespace ServiceProcess
                 droneInstance.SetServiceCost(Double.Parse(tbServiceCost.Text));
                 droneInstance.SetServiceTag(cbTag.Text);
 
-                if (GetPriority() == 1)
+                if (GetServicePriority() == 1)
                 {
                     droneInstance.SetServiceCost(Double.Parse(tbServiceCost.Text) * 1.15);
-                    expressServiceQueue.Enqueue(droneInstance);
+                    ExpressService.Enqueue(droneInstance);
                     DisplayExpressService();
-                    ClearTextboxes();
-                  
-                    
+                    ClearTextboxes(); 
                 }
                 else
                 {
-                    regularServiceQueue.Enqueue(droneInstance);
+                    RegularService.Enqueue(droneInstance);
                     DisplayRegularService();
                     ClearTextboxes();
                 }
@@ -86,7 +84,7 @@ namespace ServiceProcess
             }
         }
 
-        private int GetPriority()
+        private int GetServicePriority()
         {
             int priority = 0;
             if (rbRegular.IsChecked == true)
@@ -103,7 +101,7 @@ namespace ServiceProcess
         public void DisplayRegularService()
         {
             lvRegularService.Items.Clear();
-            foreach (Drone dr in regularServiceQueue)
+            foreach (Drone dr in RegularService)
             {
                 lvRegularService.Items.Add(new
                 {
@@ -119,7 +117,7 @@ namespace ServiceProcess
         public void DisplayExpressService()
         {
             lvExpressService.Items.Clear();
-            foreach (Drone dr in expressServiceQueue)
+            foreach (Drone dr in ExpressService)
             {
                 lvExpressService.Items.Add(new
                 {
@@ -132,16 +130,25 @@ namespace ServiceProcess
             }
         }
 
+        public void DisplayFinishService()
+        {
+            lbFinishService.Items.Clear();
+            foreach (Drone d in FinishedList)
+            {
+                lbFinishService.Items.Add(d.DisplayFinishService());
+            }
+        }
+
         private void ListViewDisplayRegular_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (lvRegularService.SelectedIndex != -1)
             {
                 int index = lvRegularService.SelectedIndex;
-                tbClientName.Text = regularServiceQueue.ElementAt(index).GetClientName();
-                tbDroneModel.Text = regularServiceQueue.ElementAt(index).GetDroneModel();
-                tbServiceProblem.Text = regularServiceQueue.ElementAt(index).GetServiceProblem();
-                tbServiceCost.Text = regularServiceQueue.ElementAt(index).GetServiceCost().ToString();
-                cbTag.Text = regularServiceQueue.ElementAt(index).GetServiceTag();
+                tbClientName.Text = RegularService.ElementAt(index).GetClientName();
+                tbDroneModel.Text = RegularService.ElementAt(index).GetDroneModel();
+                tbServiceProblem.Text = RegularService.ElementAt(index).GetServiceProblem();
+                tbServiceCost.Text = RegularService.ElementAt(index).GetServiceCost().ToString();
+                cbTag.Text = RegularService.ElementAt(index).GetServiceTag();
             }
             else
             {
@@ -153,11 +160,11 @@ namespace ServiceProcess
             if (lvExpressService.SelectedIndex != -1)
             {
                 int index = lvExpressService.SelectedIndex;
-                tbClientName.Text = expressServiceQueue.ElementAt(index).GetClientName();
-                tbDroneModel.Text = expressServiceQueue.ElementAt(index).GetDroneModel();
-                tbServiceProblem.Text = expressServiceQueue.ElementAt(index).GetServiceProblem();
-                tbServiceCost.Text = expressServiceQueue.ElementAt(index).GetServiceCost().ToString();
-                cbTag.Text = expressServiceQueue.ElementAt(index).GetServiceTag();
+                tbClientName.Text = ExpressService.ElementAt(index).GetClientName();
+                tbDroneModel.Text = ExpressService.ElementAt(index).GetDroneModel();
+                tbServiceProblem.Text = ExpressService.ElementAt(index).GetServiceProblem();
+                tbServiceCost.Text = ExpressService.ElementAt(index).GetServiceCost().ToString();
+                cbTag.Text = ExpressService.ElementAt(index).GetServiceTag();
             }
             else
             {
@@ -176,7 +183,7 @@ namespace ServiceProcess
 
         private void IncrementTag()
         {
-            //int currentTag = (int)Tag.value;
+            int currentTag = (int)cbTag.SelectedValue;
             currentTag += 10;
             if (currentTag <=900)
             {
@@ -190,6 +197,36 @@ namespace ServiceProcess
         {
             Regex regex = new Regex("^[.][0-9]+$|^[0-1.]*[.,]{0,1}[0-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void btnFinishRegular_Click(object sender, RoutedEventArgs e)
+        {
+            if (RegularService.Count > 0)
+            {
+                FinishedList.Add(RegularService.Dequeue());
+                DisplayRegularService();
+                DisplayFinishService();
+            }
+        }
+
+        private void btnFinishExpress_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExpressService.Count > 0)
+            {
+                FinishedList.Add(ExpressService.Dequeue());
+                DisplayExpressService();
+                DisplayFinishService();
+            }
+        }
+
+        private void lbFinishService_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lbFinishService.SelectedItem != null)
+            {
+                int index = lbFinishService.SelectedIndex;
+                FinishedList.RemoveAt(index);
+                DisplayFinishService();
+            }
         }
 
         private void tbClientName_GotFocus(object sender, RoutedEventArgs e)
