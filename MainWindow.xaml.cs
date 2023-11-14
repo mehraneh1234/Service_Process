@@ -26,7 +26,7 @@ namespace ServiceProcess
         Queue<Drone> RegularService = new Queue<Drone>();
         Queue<Drone> ExpressService = new Queue<Drone>();
         List<Drone> FinishedList = new List<Drone>();
-        //private int currentTag = 100;
+        
 
 
         public MainWindow()
